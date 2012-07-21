@@ -2,7 +2,7 @@ RogEE "Template OmniLogger"
 a plugin for ExpressionEngine 2
 by Michael Rog
 
-http://rog.ee/omnilogger
+http://rog.ee/template_omnilogger
 
 version 1.0.0
 
