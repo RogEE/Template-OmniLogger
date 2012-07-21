@@ -118,7 +118,7 @@ class Template_omnilogger {
 
 		$l_emails = explode(",", preg_replace('/\s+/', '', $this->H->param('admin_emails', '')));
 
-		$l_extended_data = $this->EE->TMPL->tagdata;
+		$l_extended_data = trim($this->EE->TMPL->tagdata);
 	
 		// Load the RogEE OmniLog model
 		$this->EE->load->model('rogee_omnilog_model');
