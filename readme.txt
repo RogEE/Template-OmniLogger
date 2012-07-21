@@ -4,7 +4,7 @@ by Michael Rog
 
 http://rog.ee/omnilogger
 
-version 0.2.0
+version 1.0.0
 
 Requires OmniLog (created by Stephen Lewis):
 http://experienceinternet.co.uk/software/omnilog/

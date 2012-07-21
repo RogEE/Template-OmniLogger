@@ -106,4 +106,4 @@ class Rogee_omnilog_model extends CI_Model {
 
 
 /* End of file      : rogee_omnilog_model.php */
-/* File location    : third_party/omnilog/models/rogee_omnilog_model.php */
+/* File location    : system/expressionengine/third_party/template_omnilogger/models/rogee_omnilog_model.php */

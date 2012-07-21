@@ -56,7 +56,7 @@ class Rogee_helpers_model extends CI_Model {
 	
 		if(!$param && $required)
 		{
-			show_error('You must define a "'.$name.'" parameter in the '.__CLASS__.' tag.');
+			show_error('You must define a "'.$name.'" parameter.');
 		}
 	
 		if($param === FALSE && $default !== FALSE)
@@ -79,4 +79,4 @@ class Rogee_helpers_model extends CI_Model {
 
 
 /* End of file      : rogee_helpers_model.php */
-/* File location    : third_party/omnilog/models/rogee_helpers_model.php */
+/* File location    : system/expressionengine/third_party/template_omnilogger/models/rogee_helpers_model.php */

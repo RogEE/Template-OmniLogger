@@ -17,7 +17,7 @@ Contact Michael with questions, feedback, suggestions, bugs, etc.
 if (!defined('ROGEE_TEMPLATE_OMNILOGGER_NAME'))
 {
 	define('ROGEE_TEMPLATE_OMNILOGGER_NAME', 'Template OmniLogger [RogEE]');
-	define('ROGEE_TEMPLATE_OMNILOGGER_VERSION',  '0.2.0');
+	define('ROGEE_TEMPLATE_OMNILOGGER_VERSION',  '1.0.0');
 	define('ROGEE_TEMPLATE_OMNILOGGER_AUTHOR', 'Michael Rog');
 	define('ROGEE_TEMPLATE_OMNILOGGER_AUTHOR_URL', 'http://rog.ee');
 	define('ROGEE_TEMPLATE_OMNILOGGER_DESC', 'Creates OmniLog entries from EE templates');

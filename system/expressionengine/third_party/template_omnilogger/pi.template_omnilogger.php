@@ -145,6 +145,24 @@ class Template_omnilogger {
 	{
 		ob_start();
 		?>
+		
+Requires OmniLog (by Stephen Lewis):
+http://experienceinternet.co.uk/software/omnilog
+		
+{exp:template_omnilogger message="Log this!"}
+Extended Data goes here.
+{/exp:template_omnilogger}
+
+Parameters:
+ - source: Defaults to "[Template]"
+ - message: REQUIRED
+ - type: notice, warning, error
+ - notify_admin: Set to "yes" if you want OmniLog to dispatch an email notification.
+ - admin_emails: A comma-separated list of admin emails to notify
+ - echo: Set to "on" if you want the tag contents to be output to the template.
+
+For more information, see the complete docs:
+http://rog.ee/template_omnilogger
 
 		<?php
 		$buffer = ob_get_contents();
