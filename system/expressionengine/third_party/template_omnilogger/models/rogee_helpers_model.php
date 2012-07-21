@@ -15,6 +15,7 @@ if (!defined('APP_VER') || !defined('BASEPATH')) { exit('No direct script access
  */
 class Rogee_helpers_model extends CI_Model {
 
+	private $EE;
 
 	/**
 	* ==============================================
@@ -47,7 +48,7 @@ class Rogee_helpers_model extends CI_Model {
 	* @return	void
 	*
 	*/
-	private function param($param, $default = FALSE, $boolean = FALSE, $required = FALSE)
+	public function param($param, $default = FALSE, $boolean = FALSE, $required = FALSE)
 	{
 	
 		$name = $param;

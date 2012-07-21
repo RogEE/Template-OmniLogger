@@ -3,12 +3,12 @@
 /*
 =====================================================
 
-RogEE "OmniLogger"
-an plugin for ExpressionEngine 2
+RogEE "Template OmniLogger"
+a plugin for ExpressionEngine 2
 by Michael Rog
 
 Contact Michael with questions, feedback, suggestions, bugs, etc.
->> http://rog.ee/omnilogger
+>> http://rog.ee/template_omnilogger
 
 =====================================================
 */
@@ -19,29 +19,32 @@ if (!defined('APP_VER') || !defined('BASEPATH')) { exit('No direct script access
 //	Here goes nothin...
 // -----------------------------------------
 
-require_once PATH_THIRD.'omnilogger/config.php';
+require_once PATH_THIRD.'template_omnilogger/config.php';
 
 $plugin_info = array(
-	'pi_name'		=> ROGEE_OMNILOGGER_NAME,
-	'pi_version'	=> ROGEE_OMNILOGGER_VERSION,
-	'pi_author'		=> ROGEE_OMNILOGGER_AUTHOR,
-	'pi_author_url'	=> ROGEE_OMNILOGGER_AUTHOR_URL,
+	'pi_name'		=> ROGEE_TEMPLATE_OMNILOGGER_NAME,
+	'pi_version'	=> ROGEE_TEMPLATE_OMNILOGGER_VERSION,
+	'pi_author'		=> ROGEE_TEMPLATE_OMNILOGGER_AUTHOR,
+	'pi_author_url'	=> ROGEE_TEMPLATE_OMNILOGGER_AUTHOR_URL,
 	'pi_description'=> 'Creates OmniLog entries from your templates',
-	'pi_usage'		=> Omnilogger::usage()
+	'pi_usage'		=> Template_omnilogger::usage()
 );
 
 /**
  * ==============================================
- * OmniLogger class, for ExpressionEngine 2
+ * Template OmniLogger class, for ExpressionEngine 2
  * ==============================================
  *
- * @package OmniLogger
+ * @package Template_omniLogger
  * @author Michael Rog <michael@michaelrog.com>
  * @copyright 2012 Michael Rog
- * @see http://rog.ee/omnilogger
+ * @see http://rog.ee/template_omnilogger
  *
  */
-class Omnilogger {
+class Template_omnilogger {
+
+	private $EE;
+	private $H;
 
 	public $return_data;
     
@@ -59,11 +62,15 @@ class Omnilogger {
 	
 		$this->EE =& get_instance();
 		
-		$this->return_data = $this->EE->TMPL->tagdata;
-		
 		// Load the RogEE helpers model
 		$this->EE->load->model('rogee_helpers_model');
-		$this->$H = $this->EE->rogee_helpers_model;
+		$this->H = $this->EE->rogee_helpers_model;
+		
+		// Create the appropriate log entry
+		$this->make_log_entry();
+		
+		// If echo is on, pass the tag data to the template
+		$this->return_data = ($this->H->param('echo', 'off', TRUE)) ? $this->EE->TMPL->tagdata : "";
 	
 	} // END Constructor
 
@@ -85,11 +92,11 @@ class Omnilogger {
 		// Fetch params from template
 		// params for param() method: $param, $default, $boolean, $required
 		
-		$l_source = $this->$H->param('source', '[Template]');
+		$l_source = $this->H->param('source', '[Template]');
 
-		$l_message = $this->$H->param('message', '');
+		$l_message = $this->H->param('message', '');
 		
-		switch ($this->$H->param('type', 'notice'))
+		switch ($this->H->param('type', 'notice'))
 		{
 		
 			case "error":
@@ -107,9 +114,9 @@ class Omnilogger {
 			
 		}
 
-		$l_notify = $this->$H->param('notify_admin', FALSE, TRUE);
+		$l_notify = $this->H->param('notify_admin', FALSE, TRUE);
 
-		$l_emails = explode(",", preg_replace('/\s+/', '', $this->$H->param('admin_emails', '')));
+		$l_emails = explode(",", preg_replace('/\s+/', '', $this->H->param('admin_emails', '')));
 
 		$l_extended_data = $this->EE->TMPL->tagdata;
 	
@@ -149,6 +156,6 @@ class Omnilogger {
 }
 
 /*
-End of file:	pi.omnilogger.php
-File location:	system/expressionengine/third_party/omnilogger/pi.omnilogger.php
+End of file:	pi.template_omnilogger.php
+File location:	system/expressionengine/third_party/template_omnilogger/pi.template_omnilogger.php
 */
